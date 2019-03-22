@@ -1,6 +1,6 @@
 {
   "name": "react-table",
-  "version": "6.9.0",
+  "version": "6.9.3",
   "description": "A fast, lightweight, opinionated table and datagrid built on React",
   "license": "MIT",
   "homepage": "https://github.com/react-tools/react-table#readme",
@@ -8,23 +8,10 @@
     "type": "git",
     "url": "git+https://github.com/react-tools/react-table.git"
   },
-  "keywords": [
-    "react",
-    "table",
-    "react-table",
-    "datagrid"
-  ],
+  "keywords": [ "react", "table", "react-table", "datagrid" ],
   "main": "lib/index.js",
   "module": "es/index.js",
-  "files": [
-    "src/",
-    "es/",
-    "lib/",
-    "react-table.js",
-    "react-table.min.js",
-    "react-table.css",
-    "media/*.png"
-  ],
+  "files": [ "src/", "es/", "lib/", "react-table.js", "react-table.min.js", "react-table.css", "media/*.png" ],
   "scripts": {
     "build:cjs": "babel src --out-dir lib --source-maps inline --copy-files",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es --source-maps inline",
@@ -96,10 +83,7 @@
           ],
           "react"
         ],
-        "plugins": [
-          "transform-object-rest-spread",
-          "transform-class-properties"
-        ]
+        "plugins": [ "transform-object-rest-spread", "transform-class-properties" ]
       },
       "es": {
         "presets": [
@@ -111,10 +95,7 @@
           ],
           "react"
         ],
-        "plugins": [
-          "transform-object-rest-spread",
-          "transform-class-properties"
-        ]
+        "plugins": [ "transform-object-rest-spread", "transform-class-properties" ]
       },
       "umd": {
         "presets": [
@@ -126,11 +107,7 @@
           ],
           "react"
         ],
-        "plugins": [
-          "transform-object-rest-spread",
-          "transform-class-properties",
-          "external-helpers"
-        ]
+        "plugins": [ "transform-object-rest-spread", "transform-class-properties", "external-helpers" ]
       }
     }
   }
