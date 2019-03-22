@@ -9,13 +9,13 @@ const emptyObj = () => ({})
 export default {
   // General
   data: [],
-  resolveData: data => data,
+  resolveData: (data) => data,
   loading: false,
   showPagination: true,
   showPaginationTop: false,
   showPaginationBottom: true,
   showPageSizeOptions: true,
-  pageSizeOptions: [5, 10, 20, 25, 50, 100],
+  pageSizeOptions: [ 5, 10, 20, 25, 50, 100 ],
   defaultPage: 0,
   defaultPageSize: 20,
   showPageJump: true,
@@ -201,13 +201,11 @@ export default {
       {children}
     </div>
   ),
-  ThComponent: ({
-    toggleSort, className, children, ...rest
-  }) => (
+  ThComponent: ({ toggleSort, className, children, ...rest }) => (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div
       className={classnames('rt-th', className)}
-      onClick={e => toggleSort && toggleSort(e)}
+      onClick={(e) => toggleSort && toggleSort(e)}
       role="columnheader"
       tabIndex="-1" // Resolves eslint issues without implementing keyboard navigation incorrectly
       {...rest}
@@ -215,9 +213,7 @@ export default {
       {children}
     </div>
   ),
-  TdComponent: ({
-    toggleSort, className, children, ...rest
-  }) => (
+  TdComponent: ({ toggleSort, className, children, ...rest }) => (
     <div className={classnames('rt-td', className)} role="gridcell" {...rest}>
       {children}
     </div>
@@ -231,19 +227,17 @@ export default {
       }}
       placeholder={column.Placeholder}
       value={filter ? filter.value : ''}
-      onChange={event => onChange(event.target.value)}
+      onChange={(event) => onChange(event.target.value)}
     />
   ),
-  ExpanderComponent: ({ isExpanded }) => (
-    <div className={classnames('rt-expander', isExpanded && '-open')}>&bull;</div>
-  ),
+  ExpanderComponent: ({ isExpanded }) => <div className={classnames('rt-expander', isExpanded && '-open')}>&bull;</div>,
   PivotValueComponent: ({ subRows, value }) => (
     <span>
       {value} {subRows && `(${subRows.length})`}
     </span>
   ),
   AggregatedComponent: ({ subRows, column }) => {
-    const previewValues = subRows.filter(d => typeof d[column.id] !== 'undefined').map((row, i) => (
+    const previewValues = subRows.filter((d) => typeof d[column.id] !== 'undefined').map((row, i) => (
       // eslint-disable-next-line react/no-array-index-key
       <span key={i}>
         {row[column.id]}
@@ -257,9 +251,7 @@ export default {
   PaginationComponent: Pagination,
   PreviousComponent: undefined,
   NextComponent: undefined,
-  LoadingComponent: ({
-    className, loading, loadingText, ...rest
-  }) => (
+  LoadingComponent: ({ className, loading, loadingText, ...rest }) => (
     <div className={classnames('-loading', { '-active': loading }, className)} {...rest}>
       <div className="-loading-inner">{loadingText}</div>
     </div>
@@ -267,4 +259,7 @@ export default {
   NoDataComponent: _.makeTemplateComponent('rt-noData', 'NoData'),
   ResizerComponent: _.makeTemplateComponent('rt-resizer', 'Resizer'),
   PadRowComponent: () => <span>&nbsp;</span>,
+
+  // Low level customization
+  functionalRowRendering: false,
 }
